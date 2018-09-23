@@ -40,8 +40,8 @@ public class MainActivity extends BaseActivity {
         }
 
         setContentView(R.layout.activity_main);
-        SViewPager viewPager = (SViewPager) findViewById(R.id.tabmain_viewPager);
-        FixedIndicatorView indicator = (FixedIndicatorView) findViewById(R.id.tabmain_indicator);
+        SViewPager viewPager = findViewById(R.id.tabmain_viewPager);
+        FixedIndicatorView indicator = findViewById(R.id.tabmain_indicator);
         indicator.setOnTransitionListener(new OnTransitionTextListener().setColor(0xffea8010, Color.GRAY));
 
 
@@ -104,11 +104,9 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         boolean callFragmentBack = false;
-        if (App.getInstance().currentFragment != null &&
-                App.getInstance().currentFragment instanceof NEUPListFragment) {
+        if (App.getInstance().currentFragment instanceof NEUPListFragment) {
             callFragmentBack = ((NEUPListFragment) App.getInstance().currentFragment).onBackPress();
-        } else if (App.getInstance().currentFragment != null &&
-                App.getInstance().currentFragment instanceof BYRPListFragment) {
+        } else if (App.getInstance().currentFragment instanceof BYRPListFragment) {
             callFragmentBack = ((BYRPListFragment) App.getInstance().currentFragment).onBackPress();
         }
 
